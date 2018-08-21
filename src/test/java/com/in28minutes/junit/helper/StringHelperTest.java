@@ -6,13 +6,27 @@ import org.junit.Test;
 
 public class StringHelperTest {
 
+	StringHelper helper = new StringHelper();
+	
 	@Test
-	public void test() {
+	public void testTruncateAInFirst2Positions_AinFirst2Positions() {
 		
-		StringHelper helper = new StringHelper();
+		
 		assertEquals("CD",helper.truncateAInFirst2Positions("AACD"));
-		assertEquals("CD",helper.truncateAInFirst2Positions("ACD"));
+	
 		
 	}
-
+	@Test
+	public void testTruncateAInFirst2Positions_AinFirstPosition() {
+		
+		assertEquals("CD",helper.truncateAInFirst2Positions("ACD"));
+	}
+	//ABCD => false, ABAB => true, AB=> true, A=> false
+	@Test
+	public void testAreFirstAndLastTwoCharactersTheSame_BasicNegativeScenario() {
+		
+		assertFalse(helper.areFirstAndLastTwoCharactersTheSame("ABCD"));
+	}
+	
+	
 }
